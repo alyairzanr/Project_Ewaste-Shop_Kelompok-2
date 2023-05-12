@@ -88,6 +88,10 @@ def login_required(f):
         return f(*args, **kwargs)
     return decorated_function
 
+@app.route('/about')
+def about():
+    return render_template('about.j2')
+
 @app.route('/home')
 def home():
     try:
@@ -126,6 +130,11 @@ def detail(id):
         return render_template('detail.j2', semuaData=daftar, username=session['username'])
     except:    
         return redirect(url_for('login'))
+    
+@app.route('/bayar')
+def bayar(id):
+    username=session['username']
+    return render_template('pembayaran.j2')
 
 @app.route('/toko', methods=['GET', 'POST'])
 def toko():
