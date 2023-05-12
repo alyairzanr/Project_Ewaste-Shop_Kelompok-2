@@ -88,6 +88,10 @@ def login_required(f):
         return f(*args, **kwargs)
     return decorated_function
 
+@app.route('/about')
+def about():
+    return render_template('about.j2')
+
 @app.route('/home')
 def home():
     try:
