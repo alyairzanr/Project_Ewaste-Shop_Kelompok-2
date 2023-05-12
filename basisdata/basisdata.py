@@ -28,6 +28,20 @@ def buatTabelGambar():
   koneksi.execute(sql)
   koneksi.close()
 
+def buatTabelBarangTerjual():
+  koneksi = sqlite3.connect("EWS.db")
+
+  sql = """CREATE TABLE IF NOT EXISTS terjual (
+          id INTEGER PRIMARY KEY,
+          username_penjual TEXT,
+          username_pembeli TEXT,
+          gambar BLOB,
+          nama TEXT,
+          harga TEXT,
+          deskripsi TEXT);"""
+  koneksi.execute(sql)
+  koneksi.close()
+
 def tambahUser(username, email, password):
   koneksi = sqlite3.connect("EWS.db")
   
