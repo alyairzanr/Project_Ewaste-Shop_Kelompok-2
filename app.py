@@ -131,12 +131,6 @@ def detail(id):
     except:    
         return redirect(url_for('login'))
     
-<<<<<<< HEAD
-@app.route('/bayar')
-def bayar(id):
-    username=session['username']
-    return render_template('pembayaran.j2')
-=======
 @app.route('/bayar/<string:id>')
 def bayar(id):
     username=session['username']
@@ -148,7 +142,6 @@ def bayar(id):
     daftar.append((gambar, row[1], row[2], row[3], row[4]))
     daftar = daftar[0]
     return render_template('pembayaran.j2', semuaData=daftar, username=session['username'])
->>>>>>> main
 
 @app.route('/toko', methods=['GET', 'POST'])
 def toko():
