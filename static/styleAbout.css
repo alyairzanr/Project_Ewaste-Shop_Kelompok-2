@@ -272,6 +272,10 @@ header .icons #menu-bar{
     font-weight: bold;
   }
 
+  .pertama{
+    margin-top: 50px;
+  }
+  
   .tentang-kami{
     background-color: #E5E5E5;
     padding: 30px 140px;
