@@ -31,11 +31,11 @@ class User:
 
     koneksi.close()
 
-  def ambilSatuUser(id):
+  def ambilSatuUser(username):
     koneksi = sqlite3.connect("EWS.db")
 
-    sql = "SELECT * FROM user where id=?;"
-    kursor = koneksi.execute(sql, (id, ))
+    sql = "SELECT * FROM user where username=?;"
+    kursor = koneksi.execute(sql, (username, ))
     hasil = kursor.fetchone()
   
     koneksi.close()

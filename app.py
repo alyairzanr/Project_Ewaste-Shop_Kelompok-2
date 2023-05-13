@@ -130,6 +130,18 @@ def detail(id):
         return render_template('detail.j2', semuaData=daftar, username=session['username'])
     except:    
         return redirect(url_for('login'))
+    
+@app.route('/bayar/<string:id>')
+def bayar(id):
+    username=session['username']
+    daftar = []
+
+    user = User.ambilSatuUser(username)
+    row = Gambar.ambilSatuBarang(id)
+    gambar = base64.b64encode(row[0]).decode('ascii')
+    daftar.append((gambar, row[1], row[2], row[3], row[4]))
+    daftar = daftar[0]
+    return render_template('pembayaran.j2', semuaData=daftar, username=session['username'])
 
 @app.route('/toko', methods=['GET', 'POST'])
 def toko():
@@ -162,6 +174,11 @@ def toko():
         return render_template('toko.j2', semuaData=daftar, username=session['username'])
     except:
         return redirect(url_for('login'))
+
+@app.route("/hapus_barang/<string:id>")
+def hapus_barang(id):
+    Gambar.hapusBarang(id)
+    return redirect(url_for('home'))
 
 @app.route("/edit/<string:id>", methods=['GET', 'POST'])
 def edit(id):
