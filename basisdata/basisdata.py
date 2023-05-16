@@ -61,7 +61,7 @@ def buatTabelSuka():
   koneksi.execute(sql)
   koneksi.close()
 
-def buatTabelKeranjang():
+def buatTabelPesanan():
   koneksi = sqlite3.connect("EWS.db")
 
   sql = """CREATE TABLE IF NOT EXISTS tabel_keranjang (
