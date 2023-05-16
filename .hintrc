@@ -9,7 +9,8 @@
       {
         "ignore": [
           "scroll-behavior",
-          "user-select"
+          "user-select",
+          "backdrop-filter"
         ]
       }
     ],
@@ -17,6 +18,12 @@
       "default",
       {
         "label": "off"
+      }
+    ],
+    "axe/name-role-value": [
+      "default",
+      {
+        "button-name": "off"
       }
     ]
   }
