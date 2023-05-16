@@ -8,7 +8,7 @@
     <title>E-Waste Shop</title>
     <link rel="shortcut icon" type="image" href="/gambar/IMG_0978.PNG">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" type="text/css" href="static/stylePembayaran.css">
+    <link rel="stylesheet" type="text/css" href="/static/stylePembayaran.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap">
     <link rel="stylesheet" href="C:\Users\Asus\Downloads\New folder\magnifying-glass-solid.svg">
 </head>
@@ -34,7 +34,7 @@
     <div class="container">
       <div class="mb-3">
         <label for="" class="form-label">Nama Lengkap </label>
-        <input type="text" class="form-control" id="" placeholder="Masukkan Nama Lengkap">
+        <input type="text" class="form-control" id="" value="aa">
       </div>
       <div class="mb-3 pt-2">
         <label for="" class="form-label">Kota</label>
@@ -68,7 +68,7 @@
               <div class="form-group row">
                 <div class="col-md-12">
                   <label for="c_fname" class="text-black">Nama Lengkap<span class="text-danger">*</span></label>
-                  <input type="text" class="form-control" id="c_fname" name="c_fname" placeholder="Masukkan Nama">
+                  <input type="text" class="form-control" id="c_fname" name="c_fname" placeholder="Masukkan Nama" required>
                 </div>
                 <!-- <div class="col-md-6">
                   <label for="c_lname" class="text-black">Last Name <span class="text-danger">*</span></label>
@@ -150,20 +150,29 @@
                     </thead>
                     <tbody>
                       <tr>
-                        <td>Kamera <strong class="mx-2">x</strong>   1</td>
-                        <td>Rp. 100.000,00</td>
+                        <td>{{semuaData[1]}} <strong class="mx-2">x</strong>   1</td>
+                        <td>{{semuaData[2]}}</td>
                       </tr>
                       <tr>
                         <td class="text-black font-weight-bold"><strong>Order Total</strong></td>
-                        <td class="text-black font-weight-bold"><strong>Rp. 100.000,00</strong></td>
+                        <td class="text-black font-weight-bold"><strong>{{semuaData[2]}}</strong></td>
                       </tr>
                     </tbody>
                   </table>
 
                   
                   <div class="form-group">
-                    <button class="btn btn-primary btn-lg py-3 btn-block" onclick="window.location='thankyou.php'">Masukkan Orderan</button>
+                    <button id="order" class="btn btn-primary btn-lg py-3 btn-block">Masukkan Orderan</button>
                   </div>
+                  
+                  <!-- <div id="popup" class="popup">
+                    <div class="konten-popup">
+                      <h3 class="judul-popup">TerimaKasih Sudah Memesan Barang</h3>
+                      <div class="tombol-popup">
+                        <button onclick="location.href='/hapus_barang/{{semuaData[4]}}'" class="tombol-1" type="button">Ok</button>
+                      </div>
+                    </div>
+                  </div> -->
 
                 </div>
               </div>
@@ -176,6 +185,14 @@
     </div>
   </section>
   <!-- akhir dari section -->
+  <div id="container-popup">
+    <div class="popup" id="popup">
+        <img src="/static/image/check.png" alt="">
+        <h2>Terimakasih</h2>
+        <p>Pembayaran Anda Berhasil!</p>
+        <button onclick="location.href='/hapus_barang/{{semuaData[4]}}'" type="button">Ok</button>
+    </div>
+  </div>
   <footer>
     <div class="info">
       <div class="satu-info">
@@ -216,5 +233,13 @@
     <div class="copy">Copyright @ 2023 By Kelompok 2</div>
   </footer>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+  <script>
+    const orderBtn = document.getElementById("order");
+    const popup = document.getElementById('container-popup');
+
+    orderBtn.addEventListener('click', function() {
+      popup.style.display = 'flex';
+    });
+  </script>
 </body>
 </html>
