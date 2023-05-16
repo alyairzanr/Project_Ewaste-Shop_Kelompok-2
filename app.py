@@ -88,6 +88,11 @@ def login_required(f):
         return f(*args, **kwargs)
     return decorated_function
 
+@app.route('/profile')
+def profile():
+    username = session['username']
+    return render_template('profile.html')
+
 @app.route('/about')
 def about():
     return render_template('about.j2')
