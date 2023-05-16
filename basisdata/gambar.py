@@ -35,7 +35,7 @@ class Gambar:
     def ambilSatuBarang (id):
         conn = sqlite3.connect('EWS.db')
         cursor = conn.cursor()
-        cursor.execute('SELECT gambar, nama, harga, deskripsi, id FROM gambar WHERE id = ?', (id,))
+        cursor.execute('SELECT gambar, nama, harga, deskripsi, id, username FROM gambar WHERE id = ?', (id,))
         row = cursor.fetchone()
         conn.close()
 

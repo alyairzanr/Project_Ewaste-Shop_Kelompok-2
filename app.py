@@ -97,6 +97,13 @@ def profile():
 @app.route('/pesanan')
 def pesanan():
     username = session['username']
+    data_mentah = Pesanan.ambilPesananPembeli(username)
+    data = []
+    for satu_data in data_mentah:
+        gambar = base64.b64encode(satu_data[3]).decode('ascii')
+        data.append([satu_data[0], satu_data[1], satu_data[2], gambar, satu_data[4], satu_data[5], satu_data[6]])
+
+    return render_template('pesanan.html', data=data, username=session['username'])
     
 
 @app.route('/about')
@@ -152,6 +159,7 @@ def bayar(id):
     gambar = base64.b64encode(row[0]).decode('ascii')
     daftar.append((gambar, row[1], row[2], row[3], row[4]))
     daftar = daftar[0]
+
     return render_template('pembayaran.j2', semuaData=daftar, username=session['username'])
 
 @app.route('/toko', methods=['GET', 'POST'])
@@ -188,6 +196,9 @@ def toko():
 
 @app.route("/hapus_barang/<string:id>")
 def hapus_barang(id):
+    username_pembeli = session['username']
+    data = Gambar.ambilSatuBarang(id)
+    Pesanan.tambahPesanan(data[5], username_pembeli, data[0], data[1], data[2], data[3])
     Gambar.hapusBarang(id)
     return redirect(url_for('home'))
 

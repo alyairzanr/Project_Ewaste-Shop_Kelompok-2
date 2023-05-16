@@ -64,9 +64,13 @@ def buatTabelSuka():
 def buatTabelPesanan():
   koneksi = sqlite3.connect("EWS.db")
 
-  sql = """CREATE TABLE IF NOT EXISTS tabel_keranjang (
+  sql = """CREATE TABLE IF NOT EXISTS pesanan (
           id INTEGER PRIMARY KEY,
-          username TEXT,
-          id_gambar INTEGER);"""
+          username_penjual TEXT,
+          username_pembeli TEXT,
+          gambar BLOB,
+          nama_gambar TEXT,
+          harga TEXT,
+          deskripsi TEXT);"""
   koneksi.execute(sql)
   koneksi.close()
