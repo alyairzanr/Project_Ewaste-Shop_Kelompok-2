@@ -91,7 +91,13 @@ def login_required(f):
 @app.route('/profile')
 def profile():
     username = session['username']
-    return render_template('profile.html')
+    data = User.ambilSatuUser(username)
+    return render_template('profile.j2', data=data, username=session['username'])
+
+@app.route('/pesanan')
+def pesanan():
+    username = session['username']
+    
 
 @app.route('/about')
 def about():
