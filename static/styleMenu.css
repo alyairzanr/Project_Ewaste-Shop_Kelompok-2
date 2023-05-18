@@ -151,7 +151,7 @@ header .icons #menu-bar{
 
 .kotak-gambar img{
   width: 100%;
-  height: 100px;
+  height: 80%;
   object-fit: contain;
   border-radius: 4px;
 }

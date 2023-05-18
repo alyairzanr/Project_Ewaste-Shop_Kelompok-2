@@ -407,6 +407,7 @@ header .icons #menu-bar{
 
 .harga h2{
     font-weight: bolder;
+    width: 100px;
     color: #0F6292;
     line-height: 5rem;
     border-bottom: rgba(53, 53, 53, 0.2) 1px solid;
@@ -501,20 +502,24 @@ header .icons #menu-bar{
 
 .detail-barang .kanan .conten-detail .harga{
     display: flex;
-    gap: 12.5rem;
+    /* gap: 12.5rem;     */
     margin-top: 8rem;
     text-align: center;
-    justify-content: center;
+    justify-content: space-between;
     /* border: #0F6292 1px solid; */
 }
 
 .detail-barang .kanan .conten-detail .harga-1{
     font-weight: normal;
+    flex-basis: 10%;
     color: #0F6292;
 }
 
 .detail-barang .kanan .conten-detail .harga-2{
     font-weight: bold;
+    margin-left: 20px;
+    flex-basis: 80%;
+    
 }
 
 .detail-barang .kanan .conten-detail .centered-button-1 {

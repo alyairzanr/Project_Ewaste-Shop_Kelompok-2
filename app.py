@@ -129,7 +129,7 @@ def home():
         daftar = []
         for row in rows:
             gambar = base64.b64encode(row[0]).decode('ascii')
-            daftar.append((gambar, row[1], row[2], row[3], row[4]))
+            daftar.append((gambar, row[1], row[2], row[3], row[4], row[5]))
 
         return render_template('home.j2', semuaData=daftar, username=session['username'])
     except:
@@ -148,7 +148,7 @@ def detail(id):
 
         row = Gambar.ambilSatuBarang(id)
         gambar = base64.b64encode(row[0]).decode('ascii')
-        daftar.append((gambar, row[1], row[2], row[3], row[4]))
+        daftar.append((gambar, row[1], row[2], row[3], row[4], row[5]))
         print(row)
 
         # for row in rows:
