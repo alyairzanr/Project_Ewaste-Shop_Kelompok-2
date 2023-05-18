@@ -67,13 +67,7 @@
   </div>
   <div class="tengah">
     <h2>{{semuaData[0][1]}}</h2>
-    <div class="bintang">
-      <a href="#" class="fas fa-star"></a>
-      <a href="#" class="fas fa-star"></a>
-      <a href="#" class="fas fa-star"></a>
-      <a href="#" class="fas fa-star"></a>
-      <a href="#" class="fas fa-star-half-alt"></a>
-    </div>
+    <h3>{{semuaData[-1]}}</h3>
     <div class="harga">
       <h2>{{semuaData[0][2]}}/Unit</h2>
     </div>
@@ -119,7 +113,7 @@
           <p class="harga-1">Subtotal</p>
           <p class="harga-2">{{semuaData[0][2]}}</p>
         </div>
-        <button class="centered-button-1"><span>+</span>Keranjang</button>
+        <!-- <button class="centered-button-1"><span>+</span>Keranjang</button> -->
         <button class="centered-button-2" onclick="location.href='/bayar/{{semuaData[0][4]}}'">Beli</button>
       </div>
     </div>
