@@ -74,3 +74,20 @@ def buatTabelPesanan():
           deskripsi TEXT);"""
   koneksi.execute(sql)
   koneksi.close()
+
+def buatTabelDipesan():
+  koneksi = sqlite3.connect("EWS.db")
+
+  sql = """CREATE TABLE IF NOT EXISTS dipesan (
+          id INTEGER PRIMARY KEY,
+          username_penjual TEXT,
+          username_pembeli TEXT,
+          nama_pembeli TEXT,
+          alamat TEXT,
+          telepon TEXT,
+          gambar BLOB,
+          nama_gambar TEXT,
+          harga TEXT,
+          deskripsi TEXT);"""
+  koneksi.execute(sql)
+  koneksi.close()
