@@ -105,6 +105,16 @@ def pesanan():
 
     return render_template('pesanan.html', data=data, username=session['username'])
     
+@app.route('/toko/pesanan')
+def tokoPesanan():
+    username = session['username']
+    data_mentah = Pesanan.ambilPesananUser(username)
+    data = []
+    for satu_data in data_mentah:
+        gambar = base64.b64encode(satu_data[6]).decode('ascii')
+        data.append([satu_data[0], satu_data[1], satu_data[2], satu_data[3], satu_data[4], satu_data[5], gambar, satu_data[7], satu_data[8], satu_data[9]])
+
+    return render_template('orderan.j2', data=data)
 
 @app.route('/about')
 def about():
@@ -194,11 +204,12 @@ def toko():
     except:
         return redirect(url_for('login'))
 
-@app.route("/hapus_barang/<string:id>")
+@app.route("/hapus_barang/<string:id>", methods=["POST"])
 def hapus_barang(id):
     username_pembeli = session['username']
     data = Gambar.ambilSatuBarang(id)
     Pesanan.tambahPesanan(data[5], username_pembeli, data[0], data[1], data[2], data[3])
+    Pesanan.tambahDipesan(data[5], username_pembeli,  request.form['nama'], request.form['address'],  request.form['phone'], data[0], data[1], data[2], data[3])
     Gambar.hapusBarang(id)
     return redirect(url_for('home'))
 

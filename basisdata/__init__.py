@@ -6,3 +6,4 @@ from .pesanan import *
 buatTabelUser()
 buatTabelGambar()
 buatTabelPesanan()
+buatTabelDipesan()

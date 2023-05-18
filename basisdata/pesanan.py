@@ -38,3 +38,22 @@ class Pesanan:
         conn.close()
 
         return rows
+    
+    def tambahDipesan(username_penjual, username_pembeli, nama_pembeli, alamat, telepon, gambar, nama_gambar, harga, deskripsi):
+        
+        koneksi = sqlite3.connect("EWS.db")
+
+        sql = f"""INSERT INTO dipesan(username_penjual, username_pembeli, nama_pembeli, alamat, telepon, gambar, nama_gambar, harga, deskripsi)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);"""
+        koneksi.execute(sql, (username_penjual, username_pembeli, nama_pembeli, alamat, telepon, gambar, nama_gambar, harga, deskripsi))
+        koneksi.commit()
+        koneksi.close()
+
+    def ambilPesananUser(username_penjual):
+        conn = sqlite3.connect('EWS.db')
+        cursor = conn.cursor()
+        cursor.execute('SELECT * FROM dipesan WHERE username_penjual = ?', (username_penjual,))
+        rows = cursor.fetchall()
+        conn.close()
+
+        return rows
